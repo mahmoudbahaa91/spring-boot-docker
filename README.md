@@ -4,7 +4,9 @@ first of all, docker should be installed locally or on the target machine.
 
 ## How to run spring boot app with docker?
 
-1- using Docker file: a file should be created with this name 'Dockerfile' in the project directory.
+## 1- using Docker file:
+
+a file should be created with this name 'Dockerfile' in the project directory.
 
 Dockerfile sample:
 
