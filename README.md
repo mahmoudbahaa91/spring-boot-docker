@@ -1,13 +1,12 @@
 # SpringBoot-Docker
 
-firs of all docker should be installed locally or on the target machine.
+first of all, docker should be installed locally or on the target machine.
 
-How to run spring boot app with docker?
+## How to run spring boot app with docker?
 
-1- using Docker file:
-A file should be created with this name 'Dockerfile' in the project directory.
+1- using Docker file: a file should be created with this name 'Dockerfile' in the project directory.
 
-Docker file sample:
+Dockerfile sample:
 
 ```
 # Base image containing Java runtime.
@@ -21,6 +20,23 @@ COPY target/user-service-0.0.1-SNAPSHOT.jar  user-service-0.0.1-SNAPSHOT.jar
 
 # application execution
 ENTRYPOINT ["java" , "-jar" , "/user-service-0.0.1-SNAPSHOT.jar"]
+```
+Maven configuration sample
+
+```
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<name>${project.artifactId}-image</name>
+					</image>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 ```
 
 
