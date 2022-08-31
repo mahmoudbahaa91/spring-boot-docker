@@ -2,9 +2,9 @@
 
 first of all, docker should be installed locally or on the target machine.
 
-## How to run spring boot app with docker?
+## How to build spring boot app with docker?
 
-## 1- using Docker file:
+###### 1- using Docker file:
 
 a file should be created with this name 'Dockerfile' in the project directory.
 
@@ -41,11 +41,32 @@ Maven configuration sample
 	</build>
 ```
 
+###### 2- using buildpacks:
+
+ buildpack is a set of executables that inspects your app source code and creates a plan to build and run your application,
+ so the docker image will be created automatically from source code wihout the need to create a Dockerfile
+ 
+ Command:
+ mvn spring-boot:build-image
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+## How to run spring boot app with docker?
+
+1- in case of Docker file, we should build the image first
+
+// building an image (. means same folder, -t means a tag)
+docker build . -t user-service-image        
+
+// run 
+docker run -p  8080:8080 user-service-image
+
+
+2- in case of Buildpacks: 
+
+// run 
+docker run -p  8080:8080 user-service-image
 
 
 
-
-https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1
-
-
-https://github.com/jonashackt/spring-boot-buildpack#spring-boot--cloud-native-build-packs
